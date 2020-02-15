@@ -34,35 +34,8 @@ public class CSVImport {
         }
     }
 
-    public int getLocation(String itemName){
-        if(fuzzySearch(itemName, records) == null){return -1;}
-        int index = fuzzySearch(itemName, records).getIndex();
-        return index;
-    }
-
-    public String getPrice(String itemName){
-        if(fuzzySearch(itemName, records) == null){return null;}
-        int index = fuzzySearch(itemName, records).getIndex();
-        String price = records.get(index)[4];
-        return price;
-    }
-
-    public String getRarity(String itemName){
-        if(fuzzySearch(itemName, records) == null){return null;}
-        int index = fuzzySearch(itemName, records).getIndex();
-        String rarity = records.get(index)[1];
-        return rarity;
-    }
-
-    public String getAttunement(String itemName){
-        if(fuzzySearch(itemName, records) == null){return null;}
-        int index = fuzzySearch(itemName, records).getIndex();
-        String attunement = records.get(index)[2];
-        if(attunement.contains("Yes") || attunement.contains("No")) {
-            return attunement;
-        }else{
-            return "No";
-        }
+    public Item getItem(String input){
+        return fuzzySearch(input, records);
     }
 
 
